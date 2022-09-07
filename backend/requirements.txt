@@ -1,0 +1,16 @@
+asgiref==3.5.2
+backports.zoneinfo==0.2.1
+cement==2.8.2
+certifi @ file:///C:/Windows/TEMP/abs_e9b7158a-aa56-4a5b-87b6-c00d295b01fanefpc8_o/croots/recipe/certifi_1655968940823/work/certifi
+colorama==0.4.3
+Django==4.1.1
+future==0.16.0
+pathspec==0.9.0
+pypiwin32==223
+pywin32==304
+semantic-version==2.8.5
+sqlparse==0.4.2
+termcolor==1.1.0
+tzdata==2022.2
+wcwidth==0.1.9
+wincertstore==0.2
