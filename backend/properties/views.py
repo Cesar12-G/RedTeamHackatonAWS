@@ -14,8 +14,8 @@ class PropertyView(APIView):
     def get(self, request, id = 0):
         
         if(id != 0):
-            propiedades   = list(Property.objects.filter(id=id).values())
-            serializer  = PropertySerializer(propiedades, many=True)
+            propiedades     = list(Property.objects.filter(id=id).values())
+            serializer      = PropertySerializer(propiedades, many=True)
             if len(propiedades) > 0:
                 datos = {
                     'status'    :"Success",
@@ -28,8 +28,8 @@ class PropertyView(APIView):
                     'message'   :"Property not found"
                 }
         else:
-            propiedades   = list(Property.objects.values())
-            serializer  = PropertySerializer(propiedades, many=True)
+            propiedades     = list(Property.objects.values())
+            serializer      = PropertySerializer(propiedades, many=True)
             if len(propiedades) > 0:
                 datos = {
                     'status'    :"Success",
@@ -63,3 +63,40 @@ class PropertyView(APIView):
             }
 
         return Response(response)
+    
+    def put(self, request, id):
+        
+        property    = Property.objects.get(id=id)
+        serializer  = PropertySerializer(instance=property, data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            response = {
+                'status'    :'Success',
+                'message'   :'Property modified',
+                'property'  :serializer.data
+            }
+        else:
+            response = {
+                'status'    :'Success',
+                'message'   :'Property not modified'
+            }
+
+        return Response(response)
+    
+    def delete(self, request, id):
+
+        try:
+            property = Property.objects.get(id=id)
+            property.delete()
+            datos = {
+                'status'    :"Success",
+                'message'   :"Property deleted"
+            }
+        except Property.DoesNotExist:
+            datos = {
+                'status'    :"Error",
+                'message'   :"Property not deleted"
+            }
+        
+        return Response(datos)

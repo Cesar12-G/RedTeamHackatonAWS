@@ -4,6 +4,7 @@ from django.db import models
 # Create your models here.
 class Property(models.Model):
     name        = models.CharField(max_length=50, verbose_name="Name")
+    description = models.CharField(max_length=1000, verbose_name="Description")
     street      = models.CharField(max_length=200, verbose_name="Strteet")
     zip         = models.IntegerField(verbose_name="Zip Code", blank=True, null=True)
     city        = models.CharField(max_length=200, verbose_name="City")
