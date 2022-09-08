@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.response import Response
 from .models import *
 
 class PropertySerializer(serializers.ModelSerializer):
@@ -7,13 +8,10 @@ class PropertySerializer(serializers.ModelSerializer):
         fields  = '__all__'
 
 class LocationSerializer(serializers.ModelSerializer):
+
     class Meta:
         model   = Location
         fields  = '__all__'
-
-    def create(self, request, *args, **kwargs):
-        data = request.DATA
-        return(data)
 
 class AppraisalSerializer(serializers.ModelSerializer):
     class Meta:
