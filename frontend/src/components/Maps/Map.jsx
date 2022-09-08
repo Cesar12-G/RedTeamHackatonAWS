@@ -6,7 +6,7 @@ export const Map = () => {
     <div className="container">
       <GoogleMaps
         apiKey={"AIzaSyDhEPE9u4fkvaUt-EUxxxgFL3cEIf4UPRE"}
-        style={{height: "700px", width: "1100px" }}
+        style={{height: "600px", width: "850px" }}
         zoom={5}
         center={{
           lat: 24.1546232,
