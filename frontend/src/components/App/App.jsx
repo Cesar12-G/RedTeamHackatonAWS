@@ -5,7 +5,9 @@ import './App.css'
 function App() {
   return (
     <div className="App">
-      <h1>Mapa</h1>
+      <h1 className="text-3xl font-bold">
+        Map
+      </h1>
       <Map></Map>
     </div>
   )
