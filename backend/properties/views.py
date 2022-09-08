@@ -141,21 +141,20 @@ class LocationView(APIView):
 
     def post(self, request):
         
-        serializer  = LocationSerializer(data = request.data)
+        request = request.data
         
-        if serializer.is_valid():
-            serializer.save()
-            response = {
+        new_location = Location.objects.create(
+            property=Property.objects.get(id=request['property']),
+            lat=request['lat'],
+            lng=request['lng']
+        )
+        new_location.save()
+        serializer = LocationSerializer(new_location)
+        response = {
                 'status'    :"Success",
                 'message'   :'Location created',
-                'location'  :serializer
+                'location'  :serializer.data
             }
-        else:
-            response = {
-                'status'    :"Error",
-                'message'   :'Location not created'
-            }
-
         return Response(response)
 
     def put(self, request, id):
