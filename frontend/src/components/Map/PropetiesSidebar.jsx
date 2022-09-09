@@ -2,6 +2,8 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import axios from "axios";
+import React from "react";
 
 const products = [
     {
@@ -15,7 +17,7 @@ const products = [
         bathrooms: 6
     },
     {
-        id: 1,
+        id: 2,
         name: 'Residencia en El Campanario Club de Golf',
         price: '$17,500,000',
         quantity: '729.0 m²',
@@ -25,7 +27,7 @@ const products = [
         bathrooms: 6
     },
     {
-        id: 1,
+        id: 3,
         name: 'Residencia en El Campanario Club de Golf',
         price: '$17,500,000',
         quantity: '729.0 m²',
@@ -36,8 +38,17 @@ const products = [
     }
 ]
 
+const baseURL = "http://localhost:8000/api/property";
+
 export const PropetiesSidebar = () => {
-    const [open, setOpen] = useState(true)
+    const [post, setPost] = useState(null)
+
+    React.useEffect(() => {
+        axios.get(baseURL).then((response) => {
+            console.log(response);
+            setPost(response.data);
+        });
+    }, []);
 
     return (
         <div className="flex h-full flex-col overflow-y-scroll bg-white">
