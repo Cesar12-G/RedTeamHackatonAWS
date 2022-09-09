@@ -86,12 +86,15 @@ export const LandingPage = () => {
 
           <main className="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+              <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
                 <span className="block text-teal-300 xl:inline">MICASA</span>{' '}
-                <span className="block text-rose-500 xl:inline">Te ayudamos a invertir en la mejor opcion</span>
+                <span className="block text-rose-500 xl:inline">Explora el mercado inmobiliario como nunca antes</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-                Micasa es una plataforma que brida servicios de...
+                Micasa es una aplicacion que utiliza las mas avanzadas tecnologias y tecnicas de analisis de datos y machine learning para ayudarte a identificar areas de oportunidad al momento de invertir en un patrimonio como casas terrenos bodegas entre otro tipo de propidades.
+              </p>
+              <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
+                Ademas ejerce como intermediario para garantizar la seguridad en tu compra, ofrece asesoria legal, vinculacion con instituciones financieras.
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
