@@ -17,6 +17,15 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/24/outline'
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+
+import { LandingPage } from '../Pages/LandingPage'
+import { Main } from '../Map/Main';
+import { Login } from './Login';
 
 const navigation = {
   categories: [
@@ -304,13 +313,13 @@ export const Navbar = () => {
 
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   <div className="flow-root">
-                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                      Sign in
+                    <a href="login" className="-m-2 block p-2 font-medium text-gray-900">
+                      Inicia Sesion
                     </a>
                   </div>
                   <div className="flow-root">
-                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                      Create account
+                    <a href="login" className="-m-2 block p-2 font-medium text-gray-900">
+                      Crea una cuenta
                     </a>
                   </div>
                 </div>
@@ -351,7 +360,7 @@ export const Navbar = () => {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="#">
+                <a href="/">
                   <span className="sr-only">Your Company</span>
                   <img
                     className="h-12 w-auto"
@@ -463,12 +472,12 @@ export const Navbar = () => {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Sign in
+                  <a href="login" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                    Inicia Sesion
                   </a>
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Create account
+                    Crea una cuenta
                   </a>
                 </div>
 
@@ -488,6 +497,13 @@ export const Navbar = () => {
           </div>
         </nav>
       </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="map" element={<Main />} />
+          <Route path="login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }

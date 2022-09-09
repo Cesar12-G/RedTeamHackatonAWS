@@ -43,12 +43,12 @@ const baseURL = "http://localhost:8000/api/property";
 export const PropetiesSidebar = () => {
     const [post, setPost] = useState(null)
 
-    React.useEffect(() => {
-        axios.get(baseURL).then((response) => {
-            console.log(response);
-            setPost(response.data);
-        });
-    }, []);
+    // React.useEffect(() => {
+    //     axios.get(baseURL).then((response) => {
+    //         console.log(response);
+    //         setPost(response.data);
+    //     });
+    // }, []);
 
     return (
         <div className="flex h-full flex-col overflow-y-scroll bg-white">
