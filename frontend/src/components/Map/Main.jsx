@@ -24,14 +24,14 @@ import { FiltersSidebar } from './FiltersSidebar'
 export const Main = () => {
   return (
     <div className="bg-white">
-      <div class="parent md:h-screen md:grid md:grid-cols-12 p-5">
-        <section class="sidebar md:col-span-2">
+      <div className="parent md:h-screen md:grid md:grid-cols-12 p-5">
+        <section className="sidebar md:col-span-2">
           <FiltersSidebar />
         </section>
-        <main class="main md:col-span-7">
+        <main className="main md:col-span-7">
           <Map />
         </main>
-        <section class="sidebar md:col-span-3">
+        <section className="sidebar md:col-span-3">
           <PropetiesSidebar />
         </section>
       </div>
