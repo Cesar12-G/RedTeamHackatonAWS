@@ -90,7 +90,7 @@ class SignUpView(generics.GenericAPIView):
     #                 'message': 'Something went wrong when trying to create your account'
     #             },
     #         status = status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
+
         
 
 class LoadUserView(APIView):
