@@ -20,10 +20,10 @@ import AuthProvider from '../context/authProvider';
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <ApiProvider>
         <AuthProvider>
           <BrowserRouter>
+            <Navbar />
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="invest" element={<Invest />} />

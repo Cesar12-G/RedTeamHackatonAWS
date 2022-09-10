@@ -2,6 +2,7 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from "react-router-dom";
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -98,12 +99,12 @@ export const LandingPage = () => {
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <a
-                    href="map"
+                  <Link
+                    to="map"
                     className="flex w-full items-center justify-center rounded-md border border-transparent bg-rose-500 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
                   >
                     Mapa Interactivo
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -17,6 +17,7 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/24/outline'
+import { Link } from "react-router-dom";
 
 const navigation = {
   categories: [
@@ -296,9 +297,9 @@ export const Navbar = () => {
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
-                      <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
+                      <Link to={page.href} className="-m-2 block p-2 font-medium text-gray-900">
                         {page.name}
-                      </a>
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -352,14 +353,14 @@ export const Navbar = () => {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="/">
+                <Link to="/" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                   <span className="sr-only">Your Company</span>
                   <img
                     className="h-12 w-auto"
                     src="https://i.postimg.cc/NftDPGnf/micasa-logo2.png"
                     alt=""
-                  />
-                </a>
+                  />   
+                </Link>
               </div>
 
               {/* Flyout menus */}
@@ -451,26 +452,24 @@ export const Navbar = () => {
                   ))}
 
                   {navigation.pages.map((page) => (
-                    <a
+                    <Link
                       key={page.name}
-                      href={page.href}
+                      to={page.href}
                       className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       {page.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </Popover.Group>
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a href="login" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <Link to="login" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Inicia Sesion
-                  </a>
+                  </Link>
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                  <a href="create-account" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Crea una cuenta
-                  </a>
+                  <Link to="/create-account" className="text-sm font-medium text-gray-700 hover:text-gray-800">Crea una cuenta</Link>
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">

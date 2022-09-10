@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
   async function login (userDetails) {
     axios.post(baseURL + endpoints.getToken, userDetails).then((response) => {
       setToken(response.data.access)
-      refreshToken(response.data.refresh)
+      setRefreshToken(response.data.refresh)
     });
     return true
   }
