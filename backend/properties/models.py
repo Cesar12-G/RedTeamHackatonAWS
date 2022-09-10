@@ -17,12 +17,6 @@ class Property(models.Model):
     verified    = models.BooleanField(default=True, verbose_name="Verified")
     land        = models.BooleanField(default=True, verbose_name="Land")
     rsa         = models.CharField(max_length=200, verbose_name="Real State Agency")
-
-    created = models.DateTimeField(verbose_name="Created date",auto_now_add=True)
-    updated = models.DateTimeField(verbose_name="Updated date", auto_now=True)
-
-class Location(models.Model):
-    property    = models.ForeignKey(Property, verbose_name="Property", related_name="property_location", on_delete=models.CASCADE)
     lat         = models.FloatField(default=True, verbose_name="Lat")
     lng         = models.FloatField(default=True, verbose_name="Lng")
 
