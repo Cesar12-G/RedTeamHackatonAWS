@@ -2,7 +2,9 @@ import { useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
-export const Login = () => {
+
+export const CreateAccount = () => {
+  const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigateTo = useNavigate();
@@ -10,13 +12,19 @@ export const Login = () => {
   const auth = useAuth()
   async function handleClick(e) {
     e.preventDefault();
-    const resp = await auth.login({
+    const resp = await auth.createAccount({
+      username,
       email,
       password
     })
 
-    navigateTo('/')
+    navigateTo('/login')
     return false
+  };
+
+  const handleUsername = (event) => {
+    const {name, value} = event.target;
+    setUsername(value)
   };
 
   const handleEmail = (event) => {
@@ -43,17 +51,23 @@ export const Login = () => {
           <p className="mt-6 font-normal text-center text-gray-300 md:mt-0">
 
           </p>
-          <p className="flex flex-col items-center justify-center mt-10 text-center">
-            <span>No tienes tu cuenta creada?</span>
-            <a href="create-account" className="underline">Creala ahora!</a>
-          </p>
           <p className="mt-6 text-sm text-center text-gray-300">
             Lee nuestros <a href="#" className="underline">terminos</a> y <a href="#" className="underline">condiciones</a>.
           </p>
         </div>
         <div className="p-5 bg-white md:flex-1">
-          <h3 className="my-4 text-2xl font-semibold text-gray-700">Inicia Sesion</h3>
+          <h3 className="my-4 text-2xl font-semibold text-gray-700">Crea tu cuenta</h3>
           <form action="#" className="flex flex-col space-y-5">
+            <div className="flex flex-col space-y-1">
+              <label htmlFor="username" className="text-sm font-semibold text-gray-500">Username</label>
+              <input
+                type="text"
+                id="username"
+                className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-teal-300"
+                value={username}
+                onChange={handleUsername}
+              />
+            </div>
             <div className="flex flex-col space-y-1">
               <label htmlFor="email" className="text-sm font-semibold text-gray-500">Correo Electronico</label>
               <input
@@ -67,7 +81,7 @@ export const Login = () => {
             <div className="flex flex-col space-y-1">
               <div className="flex items-center justify-between">
                 <label htmlFor="password" className="text-sm font-semibold text-gray-500">Contraseña</label>
-                <a href="#" className="text-sm text-blue-600 hover:underline focus:text-blue-800">Olvidaste Contraseña</a>
+                <a href="#" className="text-sm text-blue-600 hover:underline focus:text-blue-800">Olvidaste tu contraseña</a>
               </div>
               <input
                 type="password"
@@ -77,20 +91,12 @@ export const Login = () => {
                 onChange={handlePassword}
               />
             </div>
-            <div className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                id="remember"
-                className="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-              />
-              <label htmlFor="remember" className="text-sm font-semibold text-gray-500">Recuerdame</label>
-            </div>
             <div>
               <button
                 className="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-rose-500 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-blue-200 focus:ring-4"
                 onClick={handleClick}
               >
-                Inicia Sesion
+                Crear Cuenta
               </button>
             </div>
             <div className="flex flex-col space-y-5">
