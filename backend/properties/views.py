@@ -108,97 +108,97 @@ class ManagePropertyView(APIView):
         
         return Response(data)
 
-class LocationView(APIView):
+# class LocationView(APIView):
 
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
+#     def dispatch(self, request, *args, **kwargs):
+#         return super().dispatch(request, *args, **kwargs)
 
-    def get(self, request, id = 0):
-        if(id != 0):
-            location = list(Location.objects.filter(id=id).values())
-            serializer = LocationSerializer(location, many=True)
-            if len(location) > 0:
-                data = {
-                    'status'    :"Success",
-                    'message'   :"Location found",
-                    'location'  :serializer.data[0]
-                }
-            else:
-                data = {
-                    'status'    :"Error",
-                    'message'   :"Property not found"
-                }
-        else:
-            location = list(Location.objects.values())
-            serializer = LocationSerializer(location, many=True)
-            if len(location) > 0:
-                data = {
-                    'status'    :"Success",
-                    'message'   :"Location found",
-                    'found'     :len(location),
-                    'locations':serializer.data
-                }
-            else:
-                data = {
-                    'status'    :"Error",
-                    'message'   :"Location not found"
-                }
+#     def get(self, request, id = 0):
+#         if(id != 0):
+#             location = list(Location.objects.filter(id=id).values())
+#             serializer = LocationSerializer(location, many=True)
+#             if len(location) > 0:
+#                 data = {
+#                     'status'    :"Success",
+#                     'message'   :"Location found",
+#                     'location'  :serializer.data[0]
+#                 }
+#             else:
+#                 data = {
+#                     'status'    :"Error",
+#                     'message'   :"Property not found"
+#                 }
+#         else:
+#             location = list(Location.objects.values())
+#             serializer = LocationSerializer(location, many=True)
+#             if len(location) > 0:
+#                 data = {
+#                     'status'    :"Success",
+#                     'message'   :"Location found",
+#                     'found'     :len(location),
+#                     'locations':serializer.data
+#                 }
+#             else:
+#                 data = {
+#                     'status'    :"Error",
+#                     'message'   :"Location not found"
+#                 }
         
-        return Response(data)
+#         return Response(data)
 
-    def post(self, request):
+#     def post(self, request):
         
-        request = request.data
+#         request = request.data
         
-        new_location = Location.objects.create(
-            property=Property.objects.get(id=request['property']),
-            lat=request['lat'],
-            lng=request['lng']
-        )
-        new_location.save()
-        serializer = LocationSerializer(new_location)
-        response = {
-                'status'    :"Success",
-                'message'   :'Location created',
-                'location'  :serializer.data
-            }
-        return Response(response)
+#         new_location = Location.objects.create(
+#             property=Property.objects.get(id=request['property']),
+#             lat=request['lat'],
+#             lng=request['lng']
+#         )
+#         new_location.save()
+#         serializer = LocationSerializer(new_location)
+#         response = {
+#                 'status'    :"Success",
+#                 'message'   :'Location created',
+#                 'location'  :serializer.data
+#             }
+#         return Response(response)
 
-    def put(self, request, id):
+#     def put(self, request, id):
         
-        location    = location.objects.get(id=id)
-        serializer  = LocationSerializer(instance=location, data=request.data)
+#         location    = location.objects.get(id=id)
+#         serializer  = LocationSerializer(instance=location, data=request.data)
 
-        if serializer.is_valid():
-            serializer.save()
-            response = {
-                'status'    :'Success',
-                'message'   :'Location modified',
-                'location'  :serializer.data
-            }
-        else:
-            response = {
-                'status'    :'Success',
-                'message'   :'Location not modified'
-            }
+#         if serializer.is_valid():
+#             serializer.save()
+#             response = {
+#                 'status'    :'Success',
+#                 'message'   :'Location modified',
+#                 'location'  :serializer.data
+#             }
+#         else:
+#             response = {
+#                 'status'    :'Success',
+#                 'message'   :'Location not modified'
+#             }
 
-        return Response(response)
+#         return Response(response)
     
-    def delete(self, request, id):
-        try:
-            location = Location.objects.get(id=id)
-            location.delete()
-            data = {
-                'status'    :"Success",
-                'message'   :"Location deleted"
-            }
-        except Location.DoesNotExist:
-            data = {
-                'status'    :"Error",
-                'message'   :"Location not deleted"
-            }
+#     def delete(self, request, id):
+#         try:
+#             location = Location.objects.get(id=id)
+#             location.delete()
+#             data = {
+#                 'status'    :"Success",
+#                 'message'   :"Location deleted"
+#             }
+#         except Location.DoesNotExist:
+#             data = {
+#                 'status'    :"Error",
+#                 'message'   :"Location not deleted"
+#             }
         
-        return Response(data)
+#         return Response(data)
 
 class PriceView(APIView):
 

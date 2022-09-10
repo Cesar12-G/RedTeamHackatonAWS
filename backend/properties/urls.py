@@ -8,6 +8,6 @@ urlpatterns = [
     path('api/manage/property/', ManagePropertyView.as_view(), name="manage_property"),
     path('api/manage/property/<int:id>', ManagePropertyView.as_view(), name="manage_show_property"),
     # Requires Auth
-    path('api/location/', LocationView.as_view(), name="location"),
-    path('api/location/<int:id>', LocationView.as_view(), name="show_location"),
+    # path('api/location/', LocationView.as_view(), name="location"),
+    # path('api/location/<int:id>', LocationView.as_view(), name="show_location"),
 ]

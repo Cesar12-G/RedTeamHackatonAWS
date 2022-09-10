@@ -7,12 +7,6 @@ class PropertySerializer(serializers.ModelSerializer):
         model   = Property
         fields  = '__all__'
 
-class LocationSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model   = Location
-        fields  = '__all__'
-
 class AppraisalSerializer(serializers.ModelSerializer):
     class Meta:
         model   = Appraisal

@@ -17,8 +17,9 @@ class Property(models.Model):
     verified    = models.BooleanField(default=True, verbose_name="Verified")
     land        = models.BooleanField(default=True, verbose_name="Land")
     rsa         = models.CharField(max_length=200, verbose_name="Real State Agency")
-    lat         = models.FloatField(default=True, verbose_name="Lat")
-    lng         = models.FloatField(default=True, verbose_name="Lng")
+    lat         = models.FloatField(default=True, verbose_name="Lat", null=True)
+    lng         = models.FloatField(default=True, verbose_name="Lng", null=True)
+    int_number  = models.CharField(max_length=200, verbose_name="Interior Number", null=True)
 
     created = models.DateTimeField(verbose_name="Created date",auto_now_add=True)
     updated = models.DateTimeField(verbose_name="Updated date", auto_now=True)
