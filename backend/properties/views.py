@@ -54,26 +54,20 @@ class ManagePropertyView(APIView):
     
     def post(self, request):
         
-        # serializer  = PropertySerializer(data = request.data)
+        serializer  = PropertySerializer(data = request.data)
         
-        # if serializer.is_valid():
-        #     serializer.save()
-        #     response = {
-        #         'status'    :"Success",
-        #         'message'   :'Property created',
-        #         'property'  :serializer.data
-        #     }
-        # else:
-        #     response = {
-        #         'status'    :"Error",
-        #         'message'   :'Property not created'
-        #     }
-
-        response = {
-            'status'    :"Success",
-            'message'   :'Property created',
-            'request'  :request.data
-        }
+        if serializer.is_valid():
+            serializer.save()
+            response = {
+                'status'    :"Success",
+                'message'   :'Property created',
+                'property'  :serializer.data
+            }
+        else:
+            response = {
+                'status'    :"Error",
+                'message'   :'Property not created'
+            }
 
         return Response(response)
     
