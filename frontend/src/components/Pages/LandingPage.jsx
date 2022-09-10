@@ -88,13 +88,13 @@ export const LandingPage = () => {
             <div className="sm:text-center lg:text-left">
               <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
                 <span className="block text-teal-300 xl:inline">MICASA</span>{' '}
-                <span className="block text-rose-500 xl:inline">Explora el mercado inmobiliario como nunca antes</span>
+                <span className="block text-rose-500 xl:inline">¡Explora el mercado inmobiliario como nunca antes!</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-                Micasa es una aplicacion que utiliza las mas avanzadas tecnologias y tecnicas de analisis de datos y machine learning para ayudarte a identificar areas de oportunidad al momento de invertir en un patrimonio como casas terrenos bodegas entre otro tipo de propidades.
+                Micasa es una aplicación que utiliza las más avanzadas tecnologías y técnicas de Análisis de Datos y Machine Learning para ayudarte a identificar áreas de oportunidad al momento de invertir en un patrimonio como casas, terrenos, bodegas, y entre otro tipo de propiedades.
               </p>
               <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-                Ademas ejerce como intermediario para garantizar la seguridad en tu compra, ofrece asesoria legal, vinculacion con instituciones financieras.
+                Además, ejerce como intermediario para garantizar la seguridad en tu compra, ofrece asesoría legal y la vinculación con instituciones financieras.
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
@@ -102,7 +102,7 @@ export const LandingPage = () => {
                     href="map"
                     className="flex w-full items-center justify-center rounded-md border border-transparent bg-rose-500 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
                   >
-                    Mapa interactivo
+                    Mapa Interactivo
                   </a>
                 </div>
               </div>
