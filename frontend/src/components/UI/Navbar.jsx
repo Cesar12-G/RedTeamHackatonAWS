@@ -310,7 +310,7 @@ export const Navbar = () => {
                     </a>
                   </div>
                   <div className="flow-root">
-                    <a href="login" className="-m-2 block p-2 font-medium text-gray-900">
+                    <a href="create-account" className="-m-2 block p-2 font-medium text-gray-900">
                       Crea una cuenta
                     </a>
                   </div>
@@ -468,7 +468,7 @@ export const Navbar = () => {
                     Inicia Sesion
                   </a>
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <a href="create-account" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Crea una cuenta
                   </a>
                 </div>
