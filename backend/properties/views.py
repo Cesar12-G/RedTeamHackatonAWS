@@ -2,11 +2,13 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from .serializers import *
 from rest_framework.response import Response
+from rest_framework import generics, permissions, status
 
 from .models import *
 
 # API REST
 class PropertyView(APIView):
+    permission_classes = (permissions.AllowAny, )
     
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
@@ -44,6 +46,11 @@ class PropertyView(APIView):
                 }
         
         return Response(data)
+
+class ManagePropertyView(APIView):
+    
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
     
     def post(self, request):
         
