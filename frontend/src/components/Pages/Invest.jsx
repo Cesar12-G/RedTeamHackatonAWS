@@ -10,7 +10,7 @@ const navigation = [
   { name: 'Company', href: '#' },
 ]
 
-export const LandingPage = () => {
+export const Invest = () => {
   return (
     <div className="relative overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl">
@@ -88,7 +88,7 @@ export const LandingPage = () => {
             <div className="sm:text-center lg:text-left">
               <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
                 <span className="block text-teal-300 xl:inline">MICASA</span>{' '}
-                <span className="block text-rose-500 xl:inline">¡Explora el mercado inmobiliario como nunca antes!</span>
+                <span className="block text-rose-500 xl:inline">¡Invierte!</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
                 Micasa es una aplicación que utiliza las más avanzadas tecnologías y técnicas de Análisis de Datos y Machine Learning para ayudarte a identificar áreas de oportunidad al momento de invertir en un patrimonio como casas, terrenos, bodegas, y entre otro tipo de propiedades.
