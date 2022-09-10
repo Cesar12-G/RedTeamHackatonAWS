@@ -7,6 +7,30 @@ class PropertySerializer(serializers.ModelSerializer):
         model   = Property
         fields  = '__all__'
 
+    def create_property(self, data):
+        # Crear property e indicar el id del user
+        # Property.objects.create(
+        #     user        =
+        #     name
+        #     description
+        #     street
+        #     zip
+        #     city
+        #     state
+        #     country
+        #     rooms
+        #     bathrooms
+        #     area
+        #     available
+        #     verified
+        #     land
+        #     rsa
+        #     lat
+        #     lng
+        #     int_number
+        # )
+        print(data)
+
 class AppraisalSerializer(serializers.ModelSerializer):
     class Meta:
         model   = Appraisal

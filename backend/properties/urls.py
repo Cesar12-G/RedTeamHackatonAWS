@@ -1,7 +1,11 @@
 from django.urls import path
 from .views import *
+from properties import views as property_views
 app_name="properties"
 urlpatterns = [
+    # Data inicial
+    path('api/property/seed/', property_views.leer_csv()),
+
     path('api/property/', PropertyView.as_view(), name="property"),
     path('api/property/<int:id>', PropertyView.as_view(), name="show_property"),
     # Requires Auth
