@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import axios from "axios";
@@ -38,17 +38,17 @@ const products = [
     }
 ]
 
-const baseURL = "http://localhost:8000/api/property";
+const baseURL = "http://127.0.0.1:8000/api/property/";
 
 export const PropetiesSidebar = () => {
     const [post, setPost] = useState(null)
 
-    // React.useEffect(() => {
-    //     axios.get(baseURL).then((response) => {
-    //         console.log(response);
-    //         setPost(response.data);
-    //     });
-    // }, []);
+    useEffect(() => {
+        axios.get(baseURL).then((response) => {
+            console.log(response.data);
+            setPost(response.data);
+        });
+    }, []);
 
     return (
         <div className="flex h-full flex-col overflow-y-scroll bg-white">
