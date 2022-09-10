@@ -23,7 +23,9 @@ import {
   Route
 } from "react-router-dom";
 
-import { LandingPage } from '../Pages/LandingPage'
+import { LandingPage } from '../Pages/LandingPage';
+import { Invest } from '../Pages/Invest';
+import { Credits } from '../Pages/Credits';
 import { Main } from '../Map/Main';
 import { Login } from './Login';
 
@@ -145,8 +147,8 @@ const navigation = {
     },
   ],
   pages: [
-    { name: 'Invierte', href: '#' },
-    { name: 'Creditos', href: '#' },
+    { name: 'Invierte', href: 'invest' },
+    { name: 'Creditos', href: 'credits' },
   ],
 }
 
@@ -314,7 +316,7 @@ export const Navbar = () => {
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   <div className="flow-root">
                     <a href="login" className="-m-2 block p-2 font-medium text-gray-900">
-                      Inicia Sesion
+                      Inicia Sesión
                     </a>
                   </div>
                   <div className="flow-root">
@@ -500,6 +502,8 @@ export const Navbar = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="invest" element={<Invest />} />
+          <Route path="credits" element={<Credits />} />
           <Route path="map" element={<Main />} />
           <Route path="login" element={<Login />} />
         </Routes>
