@@ -1,11 +1,12 @@
 from rest_framework.validators import ValidationError
 from rest_framework import serializers
 from .models import User
+from django.contrib.auth.hashers import make_password
 
 class SignUpSerializer(serializers.ModelSerializer):
     email       = serializers.CharField(max_length=80)
     username    = serializers.CharField(max_length=45)
-    password    = serializers.CharField(min_length=8, write_only=True)
+    password    = serializers.CharField(min_length=8)
 
     class Meta:
         model   = User
@@ -18,6 +19,10 @@ class SignUpSerializer(serializers.ModelSerializer):
             raise ValidationError("Email has already been used")
 
         return super().validate(attrs)
+    
+    def validate_password(self, attrs: str) -> str:
+    
+        return make_password(attrs)
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
