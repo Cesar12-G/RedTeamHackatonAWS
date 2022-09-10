@@ -17,17 +17,6 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/24/outline'
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
-
-import { LandingPage } from '../Pages/LandingPage';
-import { Invest } from '../Pages/Invest';
-import { Credits } from '../Pages/Credits';
-import { Main } from '../Map/Main';
-import { Login } from './Login';
 
 const navigation = {
   categories: [
@@ -147,8 +136,9 @@ const navigation = {
     },
   ],
   pages: [
-    { name: 'Invierte', href: 'invest' },
-    { name: 'Creditos', href: 'credits' },
+    // { name: 'Invierte', href: 'invest' },
+    // { name: 'Creditos', href: 'credits' },
+    { name: 'Registra tu propiedad', href: 'add-property' },
   ],
 }
 
@@ -499,15 +489,6 @@ export const Navbar = () => {
           </div>
         </nav>
       </header>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="invest" element={<Invest />} />
-          <Route path="credits" element={<Credits />} />
-          <Route path="map" element={<Main />} />
-          <Route path="login" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
     </div>
   )
 }

@@ -3,7 +3,6 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import axios from "axios";
-import React from "react";
 
 const products = [
     {
@@ -38,15 +37,18 @@ const products = [
     }
 ]
 
-const baseURL = "http://127.0.0.1:8000/api/property/";
-
 export const PropetiesSidebar = () => {
     const [post, setPost] = useState(null)
 
     useEffect(() => {
-        axios.get(baseURL).then((response) => {
-            console.log(response.data);
-            setPost(response.data);
+        axios.get(baseURL, {
+            headers: {
+              Authorization: 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYyODMxODUyLCJpYXQiOjE2NjI4MzEyNTIsImp0aSI6IjU1OWRmN2YzODFhYzQ4NGRiMzI3MTQ4M2M5YWEwZTYxIiwidXNlcl9pZCI6M30.Lq4VSpLSQOyTObIYxAjr05W-fHwGEDI1VKo9_4t-O-4' //the token is a variable which holds the token
+            }
+           }).then((response) => {
+            if ('properites' in response.data) {
+                setPost(response.data.properites);
+            }
         });
     }, []);
 

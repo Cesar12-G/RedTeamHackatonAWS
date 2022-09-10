@@ -1,14 +1,39 @@
 import { useState } from 'react'
-import { Main } from '../Map/Main'
-import { PropetiesSidebar } from '../Map/PropetiesSidebar'
-import { Navbar } from '../UI/Navbar'
 import './App.css'
-// import { LandingPage } from '../Main/LandingPage'
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+
+import { Navbar } from '../UI/Navbar'
+import { LandingPage } from '../Pages/LandingPage';
+import { Invest } from '../Pages/Invest';
+import { Credits } from '../Pages/Credits';
+import { Main } from '../Map/Main';
+import { Login } from '../UI/Login';
+import { AddProperty } from '../Pages/AddProperty';
+import ApiProvider from '../context/apiProvider';
+import AuthProvider from '../context/authProvider';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <ApiProvider>
+        <AuthProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="invest" element={<Invest />} />
+              <Route path="credits" element={<Credits />} />
+              <Route path="map" element={<Main />} />
+              <Route path="login" element={<Login />} />
+              <Route path="add-property" element={<AddProperty />} />
+            </Routes>
+          </BrowserRouter>
+        </AuthProvider>
+      </ApiProvider>
     </div>
   )
 }
