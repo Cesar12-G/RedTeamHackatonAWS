@@ -52,14 +52,14 @@ export const CreateAccount = () => {
 
           </p>
           <p className="mt-6 text-sm text-center text-gray-300">
-            Lee nuestros <a href="#" className="underline">terminos</a> y <a href="#" className="underline">condiciones</a>.
+            Lee nuestros <a href="#" className="underline">términos</a> y <a href="#" className="underline">condiciones</a>.
           </p>
         </div>
         <div className="p-5 bg-white md:flex-1">
-          <h3 className="my-4 text-2xl font-semibold text-gray-700">Crea tu cuenta</h3>
+          <h3 className="my-4 text-2xl font-semibold text-gray-700">Crea tu Cuenta</h3>
           <form action="#" className="flex flex-col space-y-5">
             <div className="flex flex-col space-y-1">
-              <label htmlFor="username" className="text-sm font-semibold text-gray-500">Username</label>
+              <label htmlFor="username" className="text-sm font-semibold text-gray-500">Usuario</label>
               <input
                 type="text"
                 id="username"
@@ -69,7 +69,7 @@ export const CreateAccount = () => {
               />
             </div>
             <div className="flex flex-col space-y-1">
-              <label htmlFor="email" className="text-sm font-semibold text-gray-500">Correo Electronico</label>
+              <label htmlFor="email" className="text-sm font-semibold text-gray-500">Correo Electrónico</label>
               <input
                 type="email"
                 id="email"
@@ -81,7 +81,7 @@ export const CreateAccount = () => {
             <div className="flex flex-col space-y-1">
               <div className="flex items-center justify-between">
                 <label htmlFor="password" className="text-sm font-semibold text-gray-500">Contraseña</label>
-                <a href="#" className="text-sm text-blue-600 hover:underline focus:text-blue-800">Olvidaste tu contraseña</a>
+                <a href="#" className="text-sm text-blue-600 hover:underline focus:text-blue-800">Olvidaste tu Contraseña</a>
               </div>
               <input
                 type="password"
@@ -102,7 +102,7 @@ export const CreateAccount = () => {
             <div className="flex flex-col space-y-5">
               <span className="flex items-center justify-center space-x-2">
                 <span className="h-px bg-gray-400 w-14"></span>
-                <span className="font-normal text-gray-500">o inicia sesion con</span>
+                <span className="font-normal text-gray-500">o inicia sesión con</span>
                 <span className="h-px bg-gray-400 w-14"></span>
               </span>
               <div className="flex flex-col space-y-4">
