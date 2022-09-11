@@ -3,6 +3,7 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import useApi from '../hooks/useApi'
+import { Link } from "react-router-dom";
 
 export const PropetiesSidebar = () => {
 
@@ -44,12 +45,12 @@ export const PropetiesSidebar = () => {
                                         </div>
                                         <div className="flex flex-1 items-end justify-between text-sm">
                                             <div className="flex">
-                                                <button
-                                                    type="button"
+                                                <Link
+                                                    to="/property"
                                                     className="font-medium text-rose-500 hover:text-indigo-500"
                                                 >
                                                     Mas Informacion
-                                                </button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
