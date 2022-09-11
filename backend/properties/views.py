@@ -46,7 +46,7 @@ class PropertyView(APIView):
                     if img['property_id'] == propiedad['id']:
                         array_img.append(img)
                  
-                propiedad['imagenes']   = array_img
+                propiedad['images']   = array_img
                 # Image.objects.filter(property=propiedad['id']).all()
             
             # for item in array:
