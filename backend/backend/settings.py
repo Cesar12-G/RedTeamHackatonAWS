@@ -123,7 +123,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+if not AWS_DB:
+    STATIC_URL = 'static/'
+else:
+    AWS_STORAGE_BUCKET_NAME = 'buckett_name'
+    AWS_S3_REGION_NAME = 'us-west-2'
+    AWS_ACCESS_KEY_ID = 'access_key'
+    AWS_SECRET_ACCESS_KEY = 'secret_access_key'
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    AWS_DEFAULT_ACL = None
+    AWS_BUCKET_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/'
+
+    STATIC_URL = '/static/'
+    STATICFILES_LOCATION = 'static'
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    MEDIAFILES_LOCATION = 'media'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
