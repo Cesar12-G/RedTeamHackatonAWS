@@ -187,8 +187,8 @@ export const Navbar = () => {
         }
       }
     };
-    getUserData()
-    console.log(auth.isAuth)
+    // getUserData()
+    console.log(auth.user)
   },[auth.isAuth])
 
   return (
@@ -464,9 +464,14 @@ export const Navbar = () => {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <Link to="login" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Inicia Sesion
-                  </Link>
+                  { auth.isAuth ?
+                  (<>Hola {auth.user.email}</>)
+                  :
+                  (<Link to="login" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  Inicia Sesion
+                  </Link>)
+                  }
+                  
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   <Link to="/create-account" className="text-sm font-medium text-gray-700 hover:text-gray-800">Crea una cuenta</Link>
                 </div>
