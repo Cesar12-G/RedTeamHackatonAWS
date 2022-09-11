@@ -9,3 +9,4 @@ node_modules
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 backend/backend/database/config.py
+backend/backend/static/*
