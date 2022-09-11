@@ -4,7 +4,7 @@ from account.models import User
 
 # Create your models here.
 class Property(models.Model):
-    user        = models.ForeignKey(User, verbose_name="User", related_name="user_property", on_delete=models.CASCADE)
+    # user        = models.ForeignKey(User, verbose_name="User", related_name="user_property", on_delete=models.CASCADE, null=True)
     name        = models.CharField(max_length=50, verbose_name="Name")
     description = models.CharField(max_length=1000, verbose_name="Description", null=True)
     street      = models.CharField(max_length=200, verbose_name="Strteet")
