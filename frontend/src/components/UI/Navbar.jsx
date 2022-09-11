@@ -187,8 +187,10 @@ export const Navbar = () => {
         }
       }
     };
-    // getUserData()
-    console.log(auth.user)
+    getUserData()
+    setTimeout(() => {
+      console.log(auth.user)      
+    }, 6000);
   },[auth.isAuth])
 
   return (
@@ -465,7 +467,7 @@ export const Navbar = () => {
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   { auth.isAuth ?
-                  (<>Hola {auth.user.email}</>)
+                  (<>Hola nombre_de_usuario</>)
                   :
                   (<Link to="login" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                   Inicia Sesion

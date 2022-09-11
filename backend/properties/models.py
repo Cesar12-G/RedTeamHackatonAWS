@@ -17,7 +17,7 @@ class Property(models.Model):
     area        = models.FloatField(null=True, blank=True, default=None)
     available   = models.BooleanField(default=True, verbose_name="Is Currently Available?")
     verified    = models.BooleanField(default=True, verbose_name="Verified")
-    land        = models.BooleanField(default=True, verbose_name="Land")
+    type        = models.CharField(max_length=200, verbose_name="Type", null=True)
     rsa         = models.CharField(max_length=200, verbose_name="Real State Agency")
     lat         = models.FloatField(default=True, verbose_name="Lat", null=True)
     lng         = models.FloatField(default=True, verbose_name="Lng", null=True)
@@ -25,6 +25,8 @@ class Property(models.Model):
 
     created = models.DateTimeField(verbose_name="Created date",auto_now_add=True)
     updated = models.DateTimeField(verbose_name="Updated date", auto_now=True)
+
+    
 
 # Casa
 # Departamento
@@ -34,6 +36,13 @@ class Property(models.Model):
 class Price(models.Model):
     property    = models.ForeignKey(Property, verbose_name="Property", related_name="property_price", on_delete=models.CASCADE)
     price       = models.FloatField(default=True, verbose_name="Price")
+
+    created = models.DateTimeField(verbose_name="Created date",auto_now_add=True)
+    updated = models.DateTimeField(verbose_name="Updated date", auto_now=True)
+
+class Image(models.Model):
+    property    = models.ForeignKey(Property, verbose_name="Property", related_name="property_image", on_delete=models.CASCADE)
+    img         = models.CharField(max_length=200, verbose_name="Image", null=True)
 
     created = models.DateTimeField(verbose_name="Created date",auto_now_add=True)
     updated = models.DateTimeField(verbose_name="Updated date", auto_now=True)
