@@ -32,6 +32,7 @@ const ApiProvider = ({ children }) => {
           let picked = (({ lat, lng, id }) => ({ lat, lng, id }))(property);
           locations.push(picked);
         });
+        console.log(locations)
         setLocations(locations);
       }
     });
