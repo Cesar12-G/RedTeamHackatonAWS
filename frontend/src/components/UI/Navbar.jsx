@@ -188,10 +188,11 @@ export const Navbar = () => {
       }
     };
     getUserData()
-    setTimeout(() => {
-      console.log(auth.user)      
-    }, 6000);
   },[auth.isAuth])
+
+  const logout = () => {
+    auth.logout()
+  }
 
   return (
     <div className="bg-white">
@@ -467,7 +468,7 @@ export const Navbar = () => {
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   { auth.isAuth ?
-                  (<>Hola nombre_de_usuario</>)
+                  (<>Hola {auth.user.user.username}</>)
                   :
                   (<Link to="login" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                   Inicia Sesion
@@ -475,7 +476,16 @@ export const Navbar = () => {
                   }
                   
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                  <Link to="/create-account" className="text-sm font-medium text-gray-700 hover:text-gray-800">Crea una cuenta</Link>
+                  { auth.isAuth ?
+                  (<button onClick={logout} className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  Cerrar sesión
+                  </button>)
+                  :
+                  (
+                    <Link to="/create-account" className="text-sm font-medium text-gray-700 hover:text-gray-800">Crea una cuenta</Link>
+                  )
+                  }
+                  
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
