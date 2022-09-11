@@ -54,19 +54,19 @@ export const Login = () => {
 
           </p>
           <p className="flex flex-col items-center justify-center mt-10 text-center">
-            <span>No tienes tu cuenta creada?</span>
-            <a href="create-account" className="underline">Creala ahora!</a>
+            <span>¿No tienes tu cuenta creada?</span>
+            <a href="create-account" className="underline">¡Créala ahora!</a>
           </p>
           <p className="mt-6 text-sm text-center text-gray-300">
-            Lee nuestros <a href="#" className="underline">terminos</a> y <a href="#" className="underline">condiciones</a>.
+            Lee nuestros <a href="#" className="underline">términos</a> y <a href="#" className="underline">condiciones</a>.
           </p>
         </div>
         <div className="p-5 bg-white md:flex-1">
 
-          <h3 className="my-4 text-2xl font-semibold text-gray-700">Inicia Sesion</h3>
+          <h3 className="my-4 text-2xl font-semibold text-gray-700">Inicia Sesión</h3>
           <form action="#" className="flex flex-col space-y-5">
             <div className="flex flex-col space-y-1">
-              <label htmlFor="email" className="text-sm font-semibold text-gray-500">Correo Electronico</label>
+              <label htmlFor="email" className="text-sm font-semibold text-gray-500">Correo Electrónico</label>
               <input
                 type="email"
                 id="email"
@@ -78,7 +78,7 @@ export const Login = () => {
             <div className="flex flex-col space-y-1">
               <div className="flex items-center justify-between">
                 <label htmlFor="password" className="text-sm font-semibold text-gray-500">Contraseña</label>
-                <a href="#" className="text-sm text-blue-600 hover:underline focus:text-blue-800">Olvidaste Contraseña</a>
+                <a href="#" className="text-sm text-blue-600 hover:underline focus:text-blue-800">Olvidaste tu Contraseña</a>
               </div>
               <input
                 type="password"
@@ -94,20 +94,20 @@ export const Login = () => {
                 id="remember"
                 className="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
               />
-              <label htmlFor="remember" className="text-sm font-semibold text-gray-500">Recuerdame</label>
+              <label htmlFor="remember" className="text-sm font-semibold text-gray-500">Recuérdame</label>
             </div>
             <div>
               <button
                 className="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-rose-500 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-blue-200 focus:ring-4"
                 onClick={handleClick}
               >
-                Inicia Sesion
+                Inicia Sesión
               </button>
             </div>
             <div className="flex flex-col space-y-5">
               <span className="flex items-center justify-center space-x-2">
                 <span className="h-px bg-gray-400 w-14"></span>
-                <span className="font-normal text-gray-500">o inicia sesion con</span>
+                <span className="font-normal text-gray-500">o inicia sesión con</span>
                 <span className="h-px bg-gray-400 w-14"></span>
               </span>
               <div className="flex flex-col space-y-4">
