@@ -7,6 +7,7 @@ const baseURL = 'http://127.0.0.1:8000/api/'
 
 const endpoints = {
   createAccount: 'account/register/',
+  getUserData: 'account/user/',
   getToken: 'token/',
 }
 
@@ -29,7 +30,45 @@ const AuthProvider = ({ children }) => {
     axios.post(baseURL + endpoints.getToken, userDetails).then((response) => {
       setToken(response.data.access)
       setRefreshToken(response.data.refresh)
+      setIsAuth(true)
+
+      // Set localstorage
+      localStorage.setItem('a_token', response.data.access)
+      localStorage.setItem('r_token', response.data.refresh)
     });
+    return true
+  }
+
+  function getTokens(){
+    let tokens = {
+      "a_token": "",
+      "r_token": ""
+    }
+    if(localStorage.getItem('a_token') != null){
+      tokens = setTokens(localStorage.getItem('a_token'),localStorage.getItem('r_token'))
+    }
+
+    return tokens
+  }
+
+  function setTokens(access, refresh){
+    return {
+      "a_token": access,
+      "r_token": refresh
+    }
+  }
+
+  async function getUserData (tokens) {
+    axios.get(baseURL + endpoints.getUserData, {
+      headers: {
+        'Authorization': `Bearer ${tokens.a_token}`
+      }
+    })
+    .then((response) => {
+      setUser(response.data)
+      setIsAuth(true)
+    })
+
     return true
   }
 
@@ -39,7 +78,9 @@ const AuthProvider = ({ children }) => {
     token,
     refreshToken,
     login,
-    createAccount
+    createAccount,
+    getUserData,
+    getTokens
   }
   return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
 }

@@ -1,23 +1,8 @@
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Disclosure, Menu, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/24/outline'
 import { Link } from "react-router-dom";
+import useAuth from '../hooks/useAuth';
 
 const navigation = {
   categories: [
@@ -191,6 +176,20 @@ function classNames(...classes) {
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false)
+  const auth = useAuth()
+
+  useEffect(()=> {
+    async function getUserData() {
+      if (localStorage.getItem('r_token')) {
+        const resp = await auth.getUserData(auth.getTokens())
+        if(resp.status){
+          console.log(resp)
+        }
+      }
+    };
+    getUserData()
+    console.log(auth.isAuth)
+  },[auth.isAuth])
 
   return (
     <div className="bg-white">

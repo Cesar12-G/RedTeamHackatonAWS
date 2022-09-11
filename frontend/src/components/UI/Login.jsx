@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,8 +6,18 @@ export const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigateTo = useNavigate();
-
   const auth = useAuth()
+
+  useEffect(()=> {
+    // async function getUserData() {
+    //   const resp = await auth.getUserData(auth.getTokens())
+    //   if(resp.status){
+    //     console.log(auth.isAuth)
+    //   }
+    // };
+    // getUserData()
+  },[])
+
   async function handleClick(e) {
     e.preventDefault();
     const resp = await auth.login({
@@ -52,6 +62,7 @@ export const Login = () => {
           </p>
         </div>
         <div className="p-5 bg-white md:flex-1">
+
           <h3 className="my-4 text-2xl font-semibold text-gray-700">Inicia Sesion</h3>
           <form action="#" className="flex flex-col space-y-5">
             <div className="flex flex-col space-y-1">
