@@ -22,7 +22,7 @@ const baseURL = "http://127.0.0.1:8000/api/property/";
 class AddProperty extends React.Component {
   constructor() {
     super();
-    this.state = { value: 'Hello World' };
+    this.state = { value: '' };
   }
   handleChange = (e) => {
     this.setState({ value: e.target.value });

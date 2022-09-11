@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
+import { CreditsTable } from '../Credits/CreditsTable'
 
 import useApi from '../hooks/useApi'
 import { Link } from "react-router-dom";
@@ -49,10 +50,9 @@ const product = {
   description:
     'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
   highlights: [
-    'Hand cut and sewn locally',
-    'Dyed with our proprietary colors',
-    'Pre-washed & pre-shrunk',
-    'Ultra-soft 100% cotton',
+    'Zona en crecimiento',
+    'Alta demanda de mercado',
+    'Construccion con buenos materiales',
   ],
   details:
     'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
@@ -82,30 +82,30 @@ export const PropertyOverview = () => {
           <div className="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block">
             <img
               src={product.images[0].src}
-              alt={product.images[0].alt}
+              // alt={product.images[0].description}
               className="h-full w-full object-cover object-center"
             />
           </div>
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
             <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
               <img
-                src={product.images[1].src}
-                alt={product.images[1].alt}
+                src={product.images[0].src}
+                // alt={product.images[0].description}
                 className="h-full w-full object-cover object-center"
               />
             </div>
             <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
               <img
-                src={product.images[2].src}
-                alt={product.images[2].alt}
+                src={product.images[0].src}
+                // alt={product.images[0].description}
                 className="h-full w-full object-cover object-center"
               />
             </div>
           </div>
           <div className="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4">
             <img
-              src={product.images[3].src}
-              alt={product.images[3].alt}
+              src={product.images[0].src}
+              // alt={product.images[0].description}
               className="h-full w-full object-cover object-center"
             />
           </div>
@@ -149,17 +149,17 @@ export const PropertyOverview = () => {
               {/* Colors */}
               <div>
                 <h3 className="text-sm font-medium text-gray-900">Características</h3>
-                <div class="flex items-center mt-8 text-gray-600 dark:text-gray-400">
-                  <div class="ml-4 text-md tracking-wide font-semibold">
+                <div className="flex items-center mt-8 text-gray-600 dark:text-gray-400">
+                  <div className="ml-4 text-md tracking-wide font-semibold">
                     {api.currentProperty.rooms} Recamaras
                   </div>
-                  <div class="ml-4 text-md tracking-wide font-semibold">
+                  <div className="ml-4 text-md tracking-wide font-semibold">
                     {api.currentProperty.bathrooms} Bathrooms
                   </div>
-                  <div class="ml-4 text-md tracking-wide font-semibold">
+                  <div className="ml-4 text-md tracking-wide font-semibold">
                     Area: {api.currentProperty.area} m²
                   </div>
-                  <div class="ml-4 text-md tracking-wide font-semibold">
+                  <div className="ml-4 text-md tracking-wide font-semibold">
                     Inmobiliaria: {api.currentProperty.rsa}
                   </div>
                 </div>
@@ -182,18 +182,18 @@ export const PropertyOverview = () => {
                 <p className="text-base text-gray-900">{api.currentProperty.description}</p>
               </div>
               <div className="space-y-6">
-                <div class="flex items-center mt-8 text-gray-600 dark:text-gray-400">
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <div className="flex items-center mt-8 text-gray-600 dark:text-gray-400">
+                  <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" className="w-8 h-8 text-gray-500">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                   </svg>
-                  <div class="ml-4 text-md tracking-wide font-semibold">
+                  <div className="ml-4 text-md tracking-wide font-semibold">
                     {api.currentProperty.street} {api.currentProperty.int_number} {api.currentProperty.zip} {api.currentProperty.city} {api.currentProperty.state} {api.currentProperty.country}
                   </div>
                 </div>
               </div>
             </div>
-
+            <CreditsTable />
             <div className="mt-10">
               <h3 className="text-sm font-medium text-gray-900">Razones que dan plusvalia a esta propiedad</h3>
 

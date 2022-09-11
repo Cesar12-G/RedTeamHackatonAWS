@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from "react-router-dom";
+import { PropetiesSidebar } from '../Map/PropetiesSidebar';
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -92,7 +93,7 @@ export const LandingPage = () => {
                 <span className="block text-rose-500 xl:inline">¡Explora el mercado inmobiliario como nunca antes!</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-                Micasa es una aplicación que utiliza las más avanzadas tecnologías y técnicas de Análisis de Datos y Machine Learning para ayudarte a identificar áreas de oportunidad al momento de invertir en un patrimonio como casas, terrenos, bodegas, y entre otro tipo de propiedades.
+                MICASA es una aplicación enfocada en inversionistas y usuarios interesados en adquirir propiedades, utilizando modelos de predicción, inteligencia artificial y herramientas interactivas para identificar áreas de oportunidad y realizar un análisis de la rentabilidad del lugar.
               </p>
               <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
                 Además, ejerce como intermediario para garantizar la seguridad en tu compra, ofrece asesoría legal y la vinculación con instituciones financieras.
@@ -119,17 +120,17 @@ export const LandingPage = () => {
         />
       </div>
       <div className="items-center justify-center text-base font-medium w-full">
-        <div className="rounded-md bg-indigo-900 mx-20 my-10 p-10">
+        <div className="rounded-md bg-rose-300 mx-20 my-10 p-10">
           <div className="text-rose-500 text-4xl mb-6">Una nueva alternativa para decidir en dónde comprar</div>
-          <div className="text-gray-100 text-xl">Para los compradores de inmobiliarios, <span className="text-teal-300 text-3xl">micasa</span> es una alternativa para calcular la plusvalía de una propiedad, con base a distintos factores como la ubicación, infraestructura urbana, servicios públicos y privados, movilidad urbana, tendencias, mantenimiento y preservación de la vivienda.</div>
+          <div className="text-gray-100 text-xl">Para los compradores de inmobiliarios, <span className="text-indigo-500 text-3xl">micasa</span> es una alternativa para calcular la plusvalía de una propiedad, con base a distintos factores como la ubicación, infraestructura urbana, servicios públicos y privados, movilidad urbana, tendencias, mantenimiento y preservación de la vivienda.</div>
         </div>
-        <div className="rounded-md bg-indigo-900 mx-20 mb-10 p-10">
+        <div className="rounded-md bg-rose-300 mx-20 mb-10 p-10">
           <div className="text-rose-500 text-4xl mb-6">Invirtiendo inteligentemente</div>
-          <span className="text-gray-100 text-xl">Con <span className="text-teal-300 text-3xl">micasa</span> puedes comprar tasas de crédito de diferentes instituciones financieras y conocer los requisitos para aplicar.</span>
+          <span className="text-gray-100 text-xl">Con <span className="text-indigo-500 text-3xl">micasa</span> puedes comprar tasas de crédito de diferentes instituciones financieras y conocer los requisitos para aplicar.</span>
         </div>
-        <div className="rounded-md bg-indigo-900 mx-20 mb-10 p-10">
+        <div className="rounded-md bg-rose-300 mx-20 mb-10 p-10">
           <div className="text-rose-500 text-4xl mb-6">Conoce la mejor zona para rentar</div>
-          <span className="text-gray-100 text-xl"><span className="text-teal-300 text-3xl">micasa</span> te brinda información acerca del promedio de gastos (agua💧, luz💡, gas⛽) en la zona de tu elección.</span>
+          <span className="text-gray-100 text-xl"><span className="text-indigo-500 text-3xl">micasa</span> te brinda información acerca del promedio de gastos (agua💧, luz💡, gas⛽) en la zona de tu elección.</span>
         </div>
       </div>
     </div>
