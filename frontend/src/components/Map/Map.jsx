@@ -15,7 +15,7 @@ export const Map = () => {
     <div className="container">
       <GoogleMaps
         apiKey={"AIzaSyDhEPE9u4fkvaUt-EUxxxgFL3cEIf4UPRE"}
-        style={{ height: "640px", width: "875px" }}
+        style={{ height: "80vh", width: "110vh" }}
         defaultOptions={{ styles: mapStyles.lightTeal }}
         zoom={5}
         center={{

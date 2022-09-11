@@ -14,7 +14,7 @@ export const PropetiesSidebar = () => {
     },[])
 
     return (
-        <div className="flex h-full flex-col overflow-y-scroll bg-white">
+        <div className="flex h-full flex-col overflow-y-scroll bg-white h-screen">
             <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                 <div className="mt-8">
                     <div className="flow-root">
@@ -23,8 +23,8 @@ export const PropetiesSidebar = () => {
                                 <li key={property.id} className="flex py-6">
                                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                         <img
-                                            // src={property.imageSrc}
-                                            // alt={property.imageAlt}
+                                            src={property.images[0].img}
+                                            alt={property.description}
                                             className="h-full w-full object-cover object-center"
                                         />
                                     </div>
