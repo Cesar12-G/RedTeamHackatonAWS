@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 
 export const ApiContext = createContext()
 
-const baseURL = 'http://127.0.0.1:8000/api/'
+const baseURL = '/api/'
 
 const endpoints = {
   properties: 'property/'
