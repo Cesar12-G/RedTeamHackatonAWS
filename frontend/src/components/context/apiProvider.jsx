@@ -29,7 +29,7 @@ const ApiProvider = ({ children }) => {
         const properties = response.data.properties
         const locations = [];
         properties.forEach(property => {
-          let picked = (({ lat, lng, id }) => ({ lat, lng, id }))(property);
+          let picked = (({ lat, lng }) => ({ lat, lng }))(property);
           locations.push(picked);
         });
         console.log(locations)
