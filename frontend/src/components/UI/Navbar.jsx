@@ -265,7 +265,7 @@ export const Navbar = () => {
                   <span className="sr-only">Your Company</span>
                   <img
                     className="h-12 w-auto"
-                    src="https://i.postimg.cc/NftDPGnf/micasa-logo2.png"
+                    src="https://micasa-app-bucket.s3.us-west-2.amazonaws.com/micasa-logo.png.png"
                     alt=""
                   />   
                 </Link>

@@ -70,7 +70,7 @@ export const PropertyOverview = () => {
   const api = useApi()
 
   useEffect(()=> {
-      const resp = api.getPropertyDetailsById(2)
+      const resp = api.getPropertyDetailsById(1)
   },[])
 
   return (
