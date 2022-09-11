@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-z0)bc7i*n+i0=he+38k&0!1#v7q#91$m*j6$vb4oqpa5iaqbf%
 # SECURITY WARNING: don't run with debug turned on in production!
 AWS_DB  = True
 DEBUG = True
+FRONT_DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -123,7 +124,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-if not AWS_DB:
+if not FRONT_DEBUG:
     STATIC_URL = 'static/'
 else:
     AWS_STORAGE_BUCKET_NAME = 'buckett_name'
