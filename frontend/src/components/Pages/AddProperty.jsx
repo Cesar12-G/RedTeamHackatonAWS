@@ -52,7 +52,7 @@ class AddProperty extends React.Component {
       headers: {
         Authorization: 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYyODMzNjU4LCJpYXQiOjE2NjI4MzMwNTgsImp0aSI6ImQzNDFkMzIxYzhjYTQ4ZDJiMDQ2NzhlMGUxMTdmMDlhIiwidXNlcl9pZCI6M30.AzqG-29PW-fdTyVUZEFHE5T3AqrQkaWjf12prHW8d2Q' //the token is a variable which holds the token
       }
-     }).then((response) => {
+    }).then((response) => {
       if ('properites' in response.data) {
           setPost(response.data.properites);
       }
@@ -74,8 +74,8 @@ class AddProperty extends React.Component {
             <div className="md:grid md:grid-cols-3 md:gap-6">
               <div className="md:col-span-1">
                 <div className="px-4 sm:px-0">
-                  <h3 className="text-lg font-medium leading-6 text-gray-900">Registra tu propiedad</h3>
-                  <p className="mt-1 text-sm text-gray-600">Micasa puede ayudarte a encontrar facilmente a un comprador verificado.</p>
+                  <h3 className="text-lg font-medium leading-6 text-gray-900">Registra tu Propiedad</h3>
+                  <p className="mt-1 text-sm text-gray-600">Micasa puede ayudarte a encontrar fácilmente a un comprador verificado.</p>
                 </div>
               </div>
               <div className="mt-5 md:col-span-2 md:mt-0">
@@ -191,7 +191,7 @@ class AddProperty extends React.Component {
   
                         <div className="col-span-6 sm:col-span-2">
                           <label htmlFor="rooms" className="block text-sm font-medium text-gray-700">
-                            Numero de Recamaras
+                            Número de Recámaras
                           </label>
                           <input
                             type="number"
@@ -204,7 +204,7 @@ class AddProperty extends React.Component {
   
                         <div className="col-span-6 sm:col-span-2">
                           <label htmlFor="bathrooms" className="block text-sm font-medium text-gray-700">
-                            Numero de Baños
+                            Número de Baños
                           </label>
                           <input
                             type="number"
@@ -217,7 +217,7 @@ class AddProperty extends React.Component {
   
                         <div className="col-span-6 sm:col-span-2">
                           <label htmlFor="land" className="block text-sm font-medium text-gray-700">
-                            Área de Terreno
+                            Área del Terreno
                           </label>
                           <input
                             type="number"
@@ -272,7 +272,7 @@ class AddProperty extends React.Component {
   
                         <div className="col-span-6 sm:col-span-4">
                           <label htmlFor="email-address" className="block text-sm font-medium text-gray-700">
-                            Email address
+                            Correo Electrónico
                           </label>
                           <input
                             type="text"

@@ -470,12 +470,12 @@ export const Navbar = () => {
                   (<>Hola nombre_de_usuario</>)
                   :
                   (<Link to="login" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                  Inicia Sesion
+                  Inicia Sesión
                   </Link>)
                   }
                   
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                  <Link to="/create-account" className="text-sm font-medium text-gray-700 hover:text-gray-800">Crea una cuenta</Link>
+                  <Link to="/create-account" className="text-sm font-medium text-gray-700 hover:text-gray-800">Crea una Cuenta</Link>
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
