@@ -1,8 +1,15 @@
-import React from 'react'
+import { useState, useEffect } from "react"
 import GoogleMaps from "simple-react-google-maps"
 import mapStyles from './mapStyles'
+import useApi from '../hooks/useApi'
 
 export const Map = () => {
+
+  const api = useApi()
+
+  useEffect(()=> {
+      const resp = api.getLocations()
+  },[])
 
   return (
     <div className="container">
@@ -16,10 +23,7 @@ export const Map = () => {
           lng: -98.1043418,
 
         }}
-        markers={[
-          { lat: 24.1546232, lng: -98.1043418 },
-          { lat: 31.6540213, lng: -106.5191465 }
-        ]}
+        markers={api.locations}
       />
     </div>
   )

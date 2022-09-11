@@ -2,27 +2,48 @@ import axios from "axios";
 import { createContext, useState } from "react";
 
 export const ApiContext = createContext()
-const baseURL = "http://127.0.0.1:8000/api/property/";
+
+const baseURL = 'http://127.0.0.1:8000/api/'
+
+const endpoints = {
+  properties: 'property'
+}
 
 const ApiProvider = ({ children }) => {
   const [properties, setProperties] = useState([])
+  const [locations, setLocations] = useState([])
 
-  async function getProperties(userDetails) {
-    // axios.get(baseURL, {
-    //   headers: {
-    //     Authorization: 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYyODMxODUyLCJpYXQiOjE2NjI4MzEyNTIsImp0aSI6IjU1OWRmN2YzODFhYzQ4NGRiMzI3MTQ4M2M5YWEwZTYxIiwidXNlcl9pZCI6M30.Lq4VSpLSQOyTObIYxAjr05W-fHwGEDI1VKo9_4t-O-4' //the token is a variable which holds the token
-    //   }
-    // }).then((response) => {
-    //   if ('properites' in response.data) {
-    //     setPost(response.data.properites);
-    //   }
-    // });
+  async function getProperties() {
+    axios.get(baseURL + endpoints.properties).then((response) => {
+      console.log(response.data)
+      if (response.data.message == 'Properties found') {
+        setProperties(response.data.properties);
+      }
+    });
+    return []
+  }
+
+  async function getLocations() {
+    axios.get(baseURL + endpoints.properties).then((response) => {
+      console.log(response.data)
+      if (response.data.message == 'Properties found') {
+        const properties = response.data.properties
+        const locations = [];
+        properties.forEach(property => {
+          let picked = (({ lat, lng, id }) => ({ lat, lng, id }))(property);
+          locations.push(picked);
+        });
+        setLocations(locations);
+      }
+    });
     return []
   }
 
   const contextValue = {
     properties,
-    getProperties
+    locations,
+    getProperties,
+    getLocations
   }
   return <ApiContext.Provider value={contextValue}>{children}</ApiContext.Provider>
 }

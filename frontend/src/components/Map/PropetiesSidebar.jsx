@@ -2,55 +2,15 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import axios from "axios";
-
-const products = [
-    {
-        id: 1,
-        name: 'Residencia en El Campanario Club de Golf',
-        price: '$17,500,000',
-        quantity: '729.0 m²',
-        imageSrc: 'https://cdn.21online.lat/mexico/cache/awsTest1/rc/V5H8nEtl/uploads/379/propiedades/364872/5f0cad277e6ea.jpg',
-        imageAlt: 'Residencia ubicada en uno de los fraccionamientos más exclusivos de Querétaro: El Campanario Residencial & Club de Golf.',
-        rooms: 5,
-        bathrooms: 6
-    },
-    {
-        id: 2,
-        name: 'Residencia en El Campanario Club de Golf',
-        price: '$17,500,000',
-        quantity: '729.0 m²',
-        imageSrc: 'https://cdn.21online.lat/mexico/cache/awsTest1/rc/V5H8nEtl/uploads/379/propiedades/364872/5f0cad277e6ea.jpg',
-        imageAlt: 'Residencia ubicada en uno de los fraccionamientos más exclusivos de Querétaro: El Campanario Residencial & Club de Golf.',
-        rooms: 5,
-        bathrooms: 6
-    },
-    {
-        id: 3,
-        name: 'Residencia en El Campanario Club de Golf',
-        price: '$17,500,000',
-        quantity: '729.0 m²',
-        imageSrc: 'https://cdn.21online.lat/mexico/cache/awsTest1/rc/V5H8nEtl/uploads/379/propiedades/364872/5f0cad277e6ea.jpg',
-        imageAlt: 'Residencia ubicada en uno de los fraccionamientos más exclusivos de Querétaro: El Campanario Residencial & Club de Golf.',
-        rooms: 5,
-        bathrooms: 6
-    }
-]
+import useApi from '../hooks/useApi'
 
 export const PropetiesSidebar = () => {
-    const [post, setPost] = useState(null)
 
-    useEffect(() => {
-        axios.get(baseURL, {
-            headers: {
-              Authorization: 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYyODMxODUyLCJpYXQiOjE2NjI4MzEyNTIsImp0aSI6IjU1OWRmN2YzODFhYzQ4NGRiMzI3MTQ4M2M5YWEwZTYxIiwidXNlcl9pZCI6M30.Lq4VSpLSQOyTObIYxAjr05W-fHwGEDI1VKo9_4t-O-4' //the token is a variable which holds the token
-            }
-           }).then((response) => {
-            if ('properites' in response.data) {
-                setPost(response.data.properites);
-            }
-        });
-    }, []);
+    const api = useApi()
+
+    useEffect(()=> {
+        const resp = api.getProperties()
+    },[])
 
     return (
         <div className="flex h-full flex-col overflow-y-scroll bg-white">
@@ -58,12 +18,12 @@ export const PropetiesSidebar = () => {
                 <div className="mt-8">
                     <div className="flow-root">
                         <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            {products.map((product) => (
-                                <li key={product.id} className="flex py-6">
+                            {api.properties.map((property) => (
+                                <li key={property.id} className="flex py-6">
                                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                         <img
-                                            src={product.imageSrc}
-                                            alt={product.imageAlt}
+                                            // src={property.imageSrc}
+                                            // alt={property.imageAlt}
                                             className="h-full w-full object-cover object-center"
                                         />
                                     </div>
@@ -71,13 +31,16 @@ export const PropetiesSidebar = () => {
                                     <div className="ml-4 flex flex-1 flex-col">
                                         <div>
                                             <div className="flex justify-between text-base font-medium text-gray-900">
-                                                <h3>
-                                                    <a href={product.href}>{product.name}</a>
-                                                    <p>{product.price}</p>
+                                                <h3 className="text-sm">
+                                                    <a href="">{property.name}</a>
+                                                    {/* <p>{property.price}</p> */}
                                                 </h3>
                                             </div>
-                                            <p className="text-gray-500">Area {product.quantity}</p>
-                                            <p className="text-gray-500">Recamaras: {product.rooms} Baños: {product.bathrooms}</p>
+                                            <p className="text-gray-500 text-sm">{property.street} {property.int_number}</p>
+                                            <p className="text-gray-500 text-sm">{property.city} {property.state} {property.country}</p>
+                                            <p className="text-gray-500 text-sm">Area: {property.area} m²</p>
+                                            <p className="text-gray-500 text-sm">Recamaras: {property.rooms} Baños: {property.bathrooms}</p>
+                                            <p className="text-gray-500 text-sm">{property.rsa}</p>
                                         </div>
                                         <div className="flex flex-1 items-end justify-between text-sm">
                                             <div className="flex">
