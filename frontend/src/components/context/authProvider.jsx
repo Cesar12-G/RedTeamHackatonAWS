@@ -12,7 +12,7 @@ const endpoints = {
 }
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState({user:{}})
   const [isAuth, setIsAuth] = useState(false)
   const [token, setToken] = useState('')
   const [refreshToken, setRefreshToken] = useState('')
@@ -37,6 +37,12 @@ const AuthProvider = ({ children }) => {
       localStorage.setItem('r_token', response.data.refresh)
     });
     return true
+  }
+
+  function logout(){
+    localStorage.removeItem('a_token')
+    localStorage.removeItem('r_token')
+    setIsAuth(false)
   }
 
   function getTokens(){
@@ -80,7 +86,8 @@ const AuthProvider = ({ children }) => {
     login,
     createAccount,
     getUserData,
-    getTokens
+    getTokens,
+    logout
   }
   return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
 }
