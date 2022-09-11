@@ -1,9 +1,11 @@
 import csv
+import json
 from rest_framework.views import APIView
 from .serializers import *
 from account.serializers import *
 from rest_framework.response import Response
 from rest_framework import generics, permissions, status
+from django.forms.models import model_to_dict
 
 from .models import *
 
@@ -31,14 +33,36 @@ class PropertyView(APIView):
                     'message'   :"Property not found"
                 }
         else:
-            properties     = list(Property.objects.values())
+            properties      = list(Property.objects.values())
             serializer      = PropertySerializer(properties, many=True)
+
+            propiedades = Property.objects.values()
+
+            for propiedad in propiedades:
+                images                  = list(Image.objects.values())
+                array_img               = []
+
+                for img in images:
+                    if img['property_id'] == propiedad['id']:
+                        array_img.append(img)
+                 
+                propiedad['imagenes']   = array_img
+                # Image.objects.filter(property=propiedad['id']).all()
+            
+            # for item in array:
+            #     item['img'] = 'meh'
+                # propiedad.images = Image.objects.get(property=propiedad.id)
+
+            # data = json.loads(serializers.serialize('json', properties_obj))
+             
+
+             
             if len(properties) > 0:
                 data = {
                     'status'    :"Success",
                     'message'   :"Properties found",
                     'found'     :len(properties),
-                    'properties':serializer.data
+                    'properties':propiedades,
                 }
             else:
                 data = {
@@ -537,19 +561,83 @@ def convertir_dato(value, tipo_de_dato):
     return response
    
 
-def leer_csv():
-    """Back - Leyendo la lista de un archivo csv"""
-    path = 'properties.csv'
-    properties = []
-    # with open(path, encoding='utf-8') as f:
-    #     reader = csv.reader(f)
-    #     for row in reader:
-    #             print(count)
-    #             print(row[0])
-            
-    response = {
-        # 'total_de_registros':len(properties),
-        'properties':properties
-    }
+class leer_csv(APIView):
+    permission_classes = (permissions.AllowAny, )
 
-    return Response(response)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
+    def get(self, request):
+        """Back - Leyendo la lista de un archivo csv"""
+        path = 'properties.csv'
+        properties = []
+        with open(path, encoding='utf-8') as f:
+            reader = csv.reader(f)
+            count = 0
+            for row in reader:
+                if count > 0:
+                    property = {
+                        'name'        : row[0],
+                        'description' : row[1],
+                        'street'      : row[2],
+                        'int_number'  : row[3],
+                        'zip'         : int(row[4]),
+                        'country'     : row[5],
+                        'state'       : row[6],
+                        'city'        : row[7],
+                        'rooms'       : int(row[8]),
+                        'bathrooms'   : int(row[9]),
+                        'area'        : float(row[10]),
+                        'available'   : row[11] == 'True',
+                        'verified'    : row[12] == 'True',
+                        'type'        : row[13],
+                        'rsa'         : row[14],
+                        'lat'         : float(row[15]),
+                        'lng'         : float(row[16]),
+                    }
+                    price   = row[17].replace(',','')
+                    price   = float(price)
+                    images  = row[18].split(",")
+
+                    properties.append(property)
+
+                    property_model = Property.objects.create(
+                        name = property['name'],
+                        description = property['description'],
+                        street = property['street'],
+                        int_number = property['int_number'],
+                        zip = property['zip'],
+                        country = property['country'],
+                        state = property['state'],
+                        city = property['city'],
+                        rooms = property['rooms'],
+                        bathrooms = property['bathrooms'],
+                        area = property['area'],
+                        available = property['available'],
+                        verified = property['verified'],
+                        type = property['type'],
+                        rsa = property['rsa'],
+                        lat = property['lat'],
+                        lng = property['lng']
+                    )
+                    property_model.save()
+
+                    price_model = Price.objects.create(
+                        property    = property_model,
+                        price       = price
+                    )
+                    price_model.save()
+
+                    for img in images:
+                        img_model = Image.objects.create(
+                            property    = property_model,
+                            img         = img
+                        )
+                        img_model.save()
+                count += 1
+        response = {
+            'total_de_registros':len(properties),
+            'properties':properties
+        }
+
+        return Response(response, status=status.HTTP_200_OK)
