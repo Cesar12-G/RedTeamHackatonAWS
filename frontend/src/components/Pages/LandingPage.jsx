@@ -119,22 +119,8 @@ export const LandingPage = () => {
         />
       </div>
       <div className="container mx-auto items-center text-base w-full">
-        <div className="rounded-md bg-indigo-900 mx-20 my-10 p-10">
-          <div className="text-rose-500 text-4xl font-medium mb-6">Una nueva alternativa para decidir en dónde comprar</div>
-          <p className="text-gray-100 text-xl">Para los compradores de inmobiliarios, <span className="text-teal-300 text-3xl">MICASA</span> es una alternativa para calcular la plusvalía de una propiedad, con base a distintos factores como la ubicación, infraestructura urbana, servicios públicos y privados, movilidad urbana, tendencias, mantenimiento y preservación de la vivienda.</p>
-        </div>
-        <div className="rounded-md bg-indigo-900 mx-20 mb-10 p-10">
-          <div className="text-rose-500 text-4xl font-medium mb-6">Invirtiendo inteligentemente</div>
-          <p className="text-gray-100 text-xl">Con <span className="text-teal-300 text-3xl">MICASA</span> puedes comprar tasas de crédito de diferentes instituciones financieras y conocer los requisitos para aplicar.</p>
-        </div>
-        <div className="rounded-md bg-indigo-900 mx-20 mb-10 p-10">
-          <div className="text-rose-500 text-4xl font-medium mb-6">Conoce la mejor zona para rentar</div>
-          <p className="text-gray-100 text-xl"><span className="text-teal-300 text-3xl">MICASA</span> te brinda información acerca del promedio de gastos (agua💧, luz💡, gas⛽) en la zona de tu elección.</p>
-        </div>
-      </div>
-      <div className="container mx-auto items-center text-base w-full">
         <article class="max-w-2xl mx-auto bg-gradient-to-r from-indigo-700 via-indigo-800 to-indigo-900 relative mb-12 rounded-3xl transform -rotate-6 translate-y-14 lg:p-4 font-body">
-            <div class="bg-white h-full transform rotate-6 lg:p-16 px-6 py-4 shadow-lg lg:rounded-3xl">
+            <div class="bg-white border h-full transform rotate-6 lg:p-16 px-6 py-4 shadow-lg lg:rounded-3xl">
               <div className="text-rose-500 text-4xl font-medium mb-4">Olvídate de:</div>
               <ul className="text-gray-900 text-xl mb-8">
                 <li>❌ Inmobiliarias tradicionales</li>
@@ -153,6 +139,20 @@ export const LandingPage = () => {
                 </ul>
             </div>
         </article>
+      </div>
+      <div className="container mx-auto items-center text-base w-full mt-40">
+        <div className="rounded-md bg-indigo-900 mx-20 my-10 p-10">
+          <div className="text-rose-500 text-4xl font-medium mb-6">Una nueva alternativa para decidir en dónde comprar</div>
+          <p className="text-gray-100 text-xl">Para los compradores de inmobiliarios, <span className="text-teal-300 text-3xl">MICASA</span> es una alternativa para calcular la plusvalía de una propiedad, con base a distintos factores como la ubicación, infraestructura urbana, servicios públicos y privados, movilidad urbana, tendencias, mantenimiento y preservación de la vivienda.</p>
+        </div>
+        <div className="rounded-md bg-indigo-900 mx-20 mb-10 p-10">
+          <div className="text-rose-500 text-4xl font-medium mb-6">Invirtiendo inteligentemente</div>
+          <p className="text-gray-100 text-xl">Con <span className="text-teal-300 text-3xl">MICASA</span> puedes comprar tasas de crédito de diferentes instituciones financieras y conocer los requisitos para aplicar.</p>
+        </div>
+        <div className="rounded-md bg-indigo-900 mx-20 mb-10 p-10">
+          <div className="text-rose-500 text-4xl font-medium mb-6">Conoce la mejor zona para rentar</div>
+          <p className="text-gray-100 text-xl"><span className="text-teal-300 text-3xl">MICASA</span> te brinda información acerca del promedio de gastos (agua💧, luz💡, gas⛽) en la zona de tu elección.</p>
+        </div>
       </div>
     </div>
   )
