@@ -55,32 +55,32 @@ class ManagePropertyView(APIView):
     
     def post(self, request):
         
-        # serializer  = PropertySerializer(data = request.data)
+        serializer  = PropertySerializer(data = request.data)
         
-        # if serializer.is_valid():
-        #     serializer.save()
-        #     response = {
-        #         'status'    :"Success",
-        #         'message'   :'Property created',
-        #         'property'  :serializer.data
-        #     }
-        # else:
-        #     response = {
-        #         'status'    :"Error",
-        #         'message'   :'Property not created'
-        #     }
-        serializer  = PropertySerializer(data=request.data)
-        user = UserSerializer(request.user)
-
         if serializer.is_valid():
-            serializer.create_property(serializer.data)
+            serializer.save()
+            response = {
+                'status'    :"Success",
+                'message'   :'Property created',
+                'property'  :serializer.data
+            }
+        else:
+            response = {
+                'status'    :"Error",
+                'message'   :'Property not created'
+            }
+        # serializer  = PropertySerializer(data=request.data)
+        # user = UserSerializer(request.user)
+
+        # if serializer.is_valid():
+        #     serializer.create_property(serializer.data)
         
-        response = {
-            'status'    :"Success",
-            'message'   :'Property created',
-            'request'   :request.data,
-            'token'     :user.data
-        }
+        # response = {
+        #     'status'    :"Success",
+        #     'message'   :'Property created',
+        #     'request'   :request.data,
+        #     'token'     :user.data
+        # }
 
         return Response(response)
     
@@ -537,70 +537,19 @@ def convertir_dato(value, tipo_de_dato):
     return response
    
 
-def leer_csv(request):
+def leer_csv():
     """Back - Leyendo la lista de un archivo csv"""
     path = 'properties.csv'
     properties = []
-    with open(path) as f:
-        reader = csv.reader(f)
-        count = 0
-        for row in reader:
-            print(row[0])
+    # with open(path, encoding='utf-8') as f:
+    #     reader = csv.reader(f)
+    #     for row in reader:
+    #             print(count)
+    #             print(row[0])
             
-
-            # # ***************************************************************************
-            # # ***************************************************************************
-
-            # # Convirtiendo a float, validar que no sea texto o valor texto vacio
-
-            # # ***************************************************************************
-            # # ***************************************************************************
-            # precio_prov_sin_iva = convertir_dato(row[2], 'float')
-            # precio_prov_con_iva = convertir_dato(row[3], 'float')
-            # # ***************************************************************************
-            # # ***************************************************************************
-
-            # # Convirtiendo a int, validar que no sea texto o valor texto vacio
-
-            # # ***************************************************************************
-            # # ***************************************************************************
-            # existencia = convertir_dato(row[6], 'int')
-
-            # articulo = {
-            #     'fecha_lista':row[0].strip(),
-            #     'promocion_con_iva':row[1].strip(),
-            #     'precio_prov_sin_iva':precio_prov_sin_iva['value'],
-            #     'precio_prov_con_iva':precio_prov_con_iva['value'],
-            #     'proveedor':row[4].strip(),
-            #     'codigo':row[5].strip(),
-            #     'existencia':existencia['value'],
-            #     'medida':row[7].strip(),
-            #     'marca':row[8].strip(),
-            #     'modelo':row[9].strip(),
-            # }
-            # count += 1
-            # if(count > 4):
-            #     # if(existencia['error']):
-            #     properties.append(articulo)
-            #     Articulos.objects.create(
-            #         id_remoto = 0,
-            #         nombre_comun = articulo['modelo'],
-            #         precio_prov_sin_iva = articulo['precio_prov_sin_iva'],
-            #         precio_prov_con_iva = articulo['precio_prov_con_iva'],
-            #         proveedor = articulo['proveedor'],
-            #         codigo = articulo['codigo'],
-            #         existencias = articulo['existencia'],
-            #         medida = articulo['medida'],
-            #         marca = articulo['marca'],
-            #         modelo = articulo['modelo'],
-            #         sin_iva = 0,
-            #         con_iva = 0
-            #     )
-            # print(row[0]),
-    pass        
     response = {
-        'total_de_registros':len(properties),
+        # 'total_de_registros':len(properties),
         'properties':properties
     }
 
-    return Response(response, status=status.HTTP_200_OK)
+    return Response(response)
