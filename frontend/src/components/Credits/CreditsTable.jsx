@@ -33,7 +33,7 @@ export const CreditsTable = () => {
                             </thead>
                             <tbody>
                                 {banks.map((bank) => (
-                                    <tr className="border-b">
+                                    <tr key={bank.id} className="border-b">
                                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             {bank.name}
                                         </td>

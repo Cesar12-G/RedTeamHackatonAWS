@@ -14,7 +14,7 @@ def currentDataBase(isAWSDebug, baseDir):
             'NAME': 'ebdb',
             'USER': 'db_user',
             'PASSWORD': 'db_pwd',
-            'HOST': 'awseb-e-7mmv9yybhu-stack-awsebrdsdatabase-wmz8jxn8arns.clwsyhsmiw5s.us-west-2.rds.amazonaws.com',
+            'HOST': '',
             'PORT': '3306',
         }
     }

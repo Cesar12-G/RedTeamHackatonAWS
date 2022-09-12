@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import GoogleMaps from "simple-react-google-maps"
 import mapStyles from './mapStyles'
 import useApi from '../hooks/useApi'
+import { Graph } from "../Pages/Graph"
 
 export const Map = () => {
 
@@ -25,6 +26,7 @@ export const Map = () => {
         }}
         markers={api.locations}
       />
+      <Graph />
     </div>
   )
 }
